@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="general" translate="label" sortOrder="10">
+            <label>General</label>
+        </tab>
+        <tab id="catalog" translate="label" sortOrder="15">
+            <label>Catalog</label>
+        </tab>
+        <tab id="customer" translate="label" sortOrder="20">
+            <label>Customers</label>
+        </tab>
+        <tab id="sales" translate="label" sortOrder="25">
+            <label>Sales</label>
+        </tab>
+        <tab id="service" translate="label" sortOrder="30">
+            <label>Services</label>
+        </tab>
+        <tab id="advanced" translate="label" sortOrder="99">
+            <label>Advanced</label>
+        </tab>
+    </system>
+</config>
