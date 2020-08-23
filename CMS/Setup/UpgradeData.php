@@ -2,6 +2,12 @@
 
 namespace KallieExperiments\CMS\Setup;
 
+/* Ok, yet another note ... this fiile is DEPRECATED
+ * in favor of using data patches.  Keeping this on hand for a bit
+ * to be sure I don't miss soomething.
+ */
+
+
 /* NOTE!!!!
  * This is an extensive list of all the classes used in this sample.
  * I strongly recommend for sake of efficiency and clarity only listing what you use.
