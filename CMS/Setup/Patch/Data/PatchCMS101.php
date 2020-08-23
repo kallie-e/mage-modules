@@ -73,12 +73,12 @@ class PatchCMS101 implements DataPatchInterface, PatchRevertableInterface
             ['scope' => ScopeInterface::SCOPE_DEFAULT, 'scope_id' => 0, 'path' => 'checkout/options/guest_checkout', 'value' => '1'],
             ['scope' => ScopeInterface::SCOPE_DEFAULT, 'scope_id' => 0, 'path' => 'checkout/options/enable_me', 'value' => '1']
         ];
-        $this->setup->getConnection()->insertOnDuplicate( $this->setup->getTable('core_config_data'), $data, ['value'] );
+        $this->_setup->getConnection()->insertOnDuplicate( $this->_setup->getTable('core_config_data'), $data, ['value'] );
 
         // Update CMS page
         // note: identifier, if avaiilable, is preferred.  page/block_id good secondary, but dependent on db's being consitant.
         $data = [ 'page_id' => 2, 'identifier' => 'about-us', 'content' => '<div>Content</div>' ];
-        $this->setup->getConnection()->insertOnDuplicate($this->setup->getTable('cms_page'), $data, ['content']);
+        $this->_setup->getConnection()->insertOnDuplicate($this->_setup->getTable('cms_page'), $data, ['content']);
 
         // Update CMS block
         $data = [ 'block_id' => 13, 'identifier' => 'footer_links_block', 'content' => '<div>Content</div>'];
@@ -86,7 +86,7 @@ class PatchCMS101 implements DataPatchInterface, PatchRevertableInterface
 
         // update a value in another table */
         $data = ['id' => '191', 'left_sidebar_html' => '<div>Content</div>'];
-        $this->setup->getConnection()->insertOnDuplicate($this->setup->getTable('ves_megamenu_item'), $data, ['left_sidebar_html']);
+        $this->_setup->getConnection()->insertOnDuplicate($this->_setup->getTable('ves_megamenu_item'), $data, ['left_sidebar_html']);
 
         // Update the definition of the attribute (not product specific, but overall)
         /** @var EavSetup $eavSetup */
@@ -110,7 +110,7 @@ class PatchCMS101 implements DataPatchInterface, PatchRevertableInterface
     // in case i need it .....
     private function checkVar($setup, $value) {
         $data = ['scope' => ScopeInterface::SCOPE_DEFAULT, 'scope_id' => 0, 'path' => 'kallieexperments/var/check', 'value' => 'value: '. $value];
-        $this->setup->getConnection()->insertOnDuplicate( $this->setup->getTable('core_config_data'), $data );
+        $this->_setup->getConnection()->insertOnDuplicate( $this->_setup->getTable('core_config_data'), $data );
     }
 
     /**
