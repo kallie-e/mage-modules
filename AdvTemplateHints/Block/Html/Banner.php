@@ -2,8 +2,12 @@
 
 namespace KallieExperiments\AdvTemplateHints\Block\Html;
 
-use \Magento\Framework\View\Element\Template\Context;
-use \Magento\Framework\View\Element\Template;
+use KallieExperiments\AdvTemplateHints\Model\Handles;
+use KallieExperiments\AdvTemplateHints\Model\TemplateData;
+use KallieExperiments\AdvTemplateHints\ModelView\Element\Template;
+use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\View\Model\Layout\Merge;
+use Magento\Framework\View\Element\Template\Context;
 
 class Banner extends Template
 {
@@ -13,29 +17,35 @@ class Banner extends Template
     private const END   = "end";
 
     /**
-     * @var array $_data
-     */
-    protected $_data;
-
-    /**
      * @var string $_layoutXml
      */
     private $_layoutXml;
 
     /**
-     * @param Context $context
-     * @param array $data
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * @var Merge $_layoutMerge
      */
-    public function __construct(Context $context, array $data = [])
-    {
-        $this->_data = $data;
-        parent::__construct($context, $this->_data);
+    private $_layoutMerge;
 
-        //$this->_layoutXml = $context->getLayout()->getXmlString();
-        //$this->_layoutXml->setLayoutXML($this->parseXML($this->getLayout()->getXmlString()));
+    /**
+     * @var array
+     */
+    private $_globalHandles;
+
+    /**
+     * @param Context $context
+     * @param TemplateData $templateData
+     * @param Merge $layoutMerge
+     * @param Handles $globalHandles
+     * @param array $data
+     * @throws LocalizedException
+     */
+    public function __construct(Context $context, TemplateData $templateData, Merge $layoutMerge, Handles $globalHandles, array $data = [])
+    {
+        parent::__construct($context, $templateData, $data);
 
         $this->_layoutXml = $this->parseXML($this->getLayout()->getXmlString());
+        $this->_layoutMerge = $layoutMerge;
+        $this->_globalHandles = $globalHandles;
     }
 
     /**
@@ -54,6 +64,15 @@ class Banner extends Template
     /**
      * @return string
      */
+    public function getLayoutHandles() {
+        return join("<br />", array_keys($this->_globalHandles->getHandles()));
+    }
+
+    /**
+     * Returns a striing representation of the layout XML for that page
+     *
+     * @return string
+     */
     public function getLayoutXmlString() {
         return $this->_layoutXml;
     }
@@ -63,7 +82,7 @@ class Banner extends Template
      * @return string
      */
     private function parseXML(string $xmlString) {
-        $parsedString = "<div class='xml-string'>";
+        $parsedString = "";
         $layoutElements = explode('**SPACE**',
             str_replace('&gt;&lt;', '&gt;**SPACE**&lt;', htmlspecialchars($xmlString) ));
 
@@ -89,9 +108,6 @@ class Banner extends Template
             $parsedString .= str_repeat(self::TAB, $tabCount) . $element . '<br />';
         }
 
-        return $parsedString . '</div>';
+        return $parsedString;
     }
-    /*private function parseXML(string $xmlString) {
-        simplexml_load_string($xmlString);
-    }*/
 }
