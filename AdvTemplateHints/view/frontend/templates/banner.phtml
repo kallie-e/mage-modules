@@ -31,12 +31,22 @@
                 <div class="item title" data-role="collapsible" role="tab">
                     <a class="switch" data-toggle="trigger" href="#tab-raw">Raw</a>
                 </div>
-                <div id="tab-raw" class="item content" data-role="content" role="tabpanel"><?= $block->getLayoutXmlString() ?></div>
+                <div id="tab-raw" class="item content" data-role="content" role="tabpanel"><div class='inner-content xml-string'><?= $block->getLayoutXmlString() ?></div></div>
 
                 <div class="item title" data-role="collapsible" role="tab">
                     <a class="switch" data-toggle="trigger" href="#tab-generated">Generated</a>
                 </div>
-                <div id="tab-generated" class="item content" data-role="content" role="tabpanel">Content coming soon...</div>
+                <div id="tab-generated" class="item content" data-role="content" role="tabpanel"><div class="inner-content">Content coming soon...</div></div>
+
+                <div class="item title" data-role="collapsible" role="tab">
+                    <a class="switch" data-toggle="trigger" href="#tab-handles">Layout Handles</a>
+                </div>
+                    <div id="tab-handles" class="item content" data-role="content" role="tabpanel"><div class="inner-content"><?= $block->getLayoutHandles() ?></div></div>
+
+                <div class="item title" data-role="collapsible" role="tab">
+                    <a class="switch" data-toggle="trigger" href="#tab-template-data">Template Data</a>
+                </div>
+                    <div id="tab-template-data" class="item content" data-role="content" role="tabpanel"><div class="inner-content"><?= $block->getTemplateData() ?></div></div>
             </div>
         </div>
     </div>
