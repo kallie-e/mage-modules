@@ -2,20 +2,29 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <tab id="general" translate="label" sortOrder="10">
+        <tab id="general" translate="label" sortOrder="1">
             <label>General</label>
         </tab>
-        <tab id="catalog" translate="label" sortOrder="15">
+        <tab id="catalog" translate="label" sortOrder="5">
             <label>Catalog</label>
         </tab>
-        <tab id="customer" translate="label" sortOrder="20">
+        <tab id="customer" translate="label" sortOrder="7">
             <label>Customers</label>
         </tab>
-        <tab id="sales" translate="label" sortOrder="25">
+        <tab id="ddg_automation" translate="label" sortOrder="10">
+            <label>Engagement Cloud</label>
+        </tab>
+        <tab id="sales" translate="label" sortOrder="12">
             <label>Sales</label>
         </tab>
-        <tab id="service" translate="label" sortOrder="30">
+        <tab id="security" translate="label" sortOrder="15">
+            <label>Security</label>
+        </tab>
+        <tab id="service" translate="label" sortOrder="17">
             <label>Services</label>
+        </tab>
+        <tab id="yotpo" translate="label" sortOrder="20">
+            <label>Yotpo</label>
         </tab>
         <tab id="advanced" translate="label" sortOrder="999999">
             <label>Advanced</label>

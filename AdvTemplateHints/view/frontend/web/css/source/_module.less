@@ -1,0 +1,61 @@
+//
+//  Theme variables
+//  _____________________________________________
+@message__margin: 0 auto;
+
+@message-ath-banner__color: @color-white;
+@message-ath-banner__background: @color-blue-dodger;
+@message-ath-banner-link__color: @link__color;
+@message-ath-banner-link__color-hover: @link__hover__color;
+@message-ath-banner-link__color-active: @link__active__color;
+@message-ath-banner__border-color: none;
+@message-ath-banner__button-color: @color-gray-darken4;
+@message-ath-banner__button-background-color: @color-white;
+
+
+
+//
+//  Global notice
+//  ---------------------------------------------
+
+.message.global {
+    p {
+        margin: 0;
+    }
+
+    &.ath-banner {
+        background-color: @message-ath-banner__background;
+
+        .banner-toolbar {
+            .lib-message(@_message-type: ath-banner);
+            max-width: @layout__max-width;
+            text-align: left;
+            width: auto;
+
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+
+            .ath-xml-button button.action {
+                background-color: @message-ath-banner__button-background-color;
+                color: @message-ath-banner__button-color;
+            }
+
+            .ath-xml-info {
+                align-self: center;
+                color: @message-ath-banner__color;
+                font-size: @font-size__base;
+            }
+        }
+    }
+}
+
+#ath-banner-modal [role='tablist'] .item.content {
+    height: 60vh;
+    overflow: scroll;
+
+    .xml-string {
+        min-width: 1400px;
+    }
+}
+
