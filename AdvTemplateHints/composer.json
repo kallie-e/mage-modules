@@ -1,14 +1,12 @@
 {
     "name": "kallie-experiments/adv-template-hints",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "N/A",
     "type": "magento2-module",
     "require": {
         "magento/framework": "*"
     },
-    "license": [
-        "Proprietary"
-    ],
+    "minimum-stability": "dev",
     "autoload": {
         "files": [
             "registration.php"

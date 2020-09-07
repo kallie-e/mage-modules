@@ -1,0 +1,43 @@
+<?php
+/**
+ * @var $block KallieExperiments\AdvTemplateHints\Block\Html\Banner
+ */
+?>
+<?php if ($block->displayAthBanner()) : ?>
+    <div class="message global ath-banner">
+        <div class="banner-toolbar">
+            <div class="ath-xml-info"><?= $block->escapeHtml(__('Advanced Template Hints XML Viewer')) ?></div>
+            <div class="ath-xml-button"><button type="button" class="action" data-trigger="view-xml""><span data-bind="i18n: 'View XML'"></span></div>
+        </div>
+    </div>
+    <div id="ath-banner-modal" data-bind="mageInit: {
+            'Magento_Ui/js/modal/modal':{
+                'type': 'popup',
+                'title': 'Advanced Template Hints XML Viewer',
+                'trigger': '[data-trigger=view-xml]',
+                'responsive': true,
+                'buttons': [{
+                    text: jQuery.mage.__('Close'),
+                    class: 'action'
+                }]
+            }}">
+        <div class="content">
+            <div class="product data items" data-bind="mageInit: {
+                'mage/tabs':{
+                    'active': 0,
+                    'trigger': '[data-toggle=trigger]',
+                    'openedState': 'active'
+                }}">
+                <div class="item title" data-role="collapsible" role="tab">
+                    <a class="switch" data-toggle="trigger" href="#tab-raw">Raw</a>
+                </div>
+                <div id="tab-raw" class="item content" data-role="content" role="tabpanel"><?= $block->getLayoutXmlString() ?></div>
+
+                <div class="item title" data-role="collapsible" role="tab">
+                    <a class="switch" data-toggle="trigger" href="#tab-generated">Generated</a>
+                </div>
+                <div id="tab-generated" class="item content" data-role="content" role="tabpanel">Content coming soon...</div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
