@@ -24,8 +24,9 @@ the core Magento tabs are alphabetized and at the top, and the Advanced tab stay
 ## Revisions    
 ###Advanced Template Hints  
 **v1.0.3**  
-* Deleted unnecessary files.  At least I think they are.  If not ... well ... this is why I use Github.
-  
+* Deleted unnecessary files.  At least I think they are.  If not ... well ... this is why I use Github.  
+* Added a few more tabs: Layout Handles, Template Data (although that last one may be temporary.  Maybe. Using it for testing atm.)
+* Attempted first round of trying to provide borders to individual blocks.  Yeeah ... no that didn't work as well as I'd hoped. Code is in there, but def a work in progress still.   
 **v1.0.2**  
 * Added banner that can appear at top of page with "View XML" button  
 * Clicking on button opens modal  
