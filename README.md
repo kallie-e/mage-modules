@@ -37,7 +37,7 @@ the core Magento tabs are alphabetized and at the top, and the Advanced tab stay
   
   
 ###CMS Patches   
-**v1.0.2**   
+**v1.0.1**   
 * Rename module  
 * Fixes and updates  
   
@@ -46,7 +46,7 @@ the core Magento tabs are alphabetized and at the top, and the Advanced tab stay
   
     
 ###Reorder Config  
-**v1.0.1**  
+**v1.0.2**  
 * Updated order  
      
 **v1.0.0**  
