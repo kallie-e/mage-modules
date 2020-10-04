@@ -52,6 +52,7 @@ class Merge extends \Magento\Framework\View\Model\Layout\Merge
         parent::__construct($design, $scopeResolver, $fileSource, $pageLayoutFileSource, $appState, $cache, $validator, $logger, $readFactory, $theme, $cacheSuffix, $layoutCacheKey, $serializer);
         $this->_globalHandles = $globalHandles;
     }
+
     /**
      * Add handle(s) to update
      *

@@ -4,9 +4,11 @@ namespace KallieExperiments\AdvTemplateHints\Block\Html;
 
 use KallieExperiments\AdvTemplateHints\Model\Handles;
 use KallieExperiments\AdvTemplateHints\Model\TemplateData;
+use KallieExperiments\AdvTemplateHints\ModelView\Layout\Merge;
 use KallieExperiments\AdvTemplateHints\ModelView\Element\Template;
+//use Magento\Framework\View\Element\Template;
+//use Magento\Framework\View\Model\Layout\Merge;
 use Magento\Framework\Exception\LocalizedException;
-use Magento\Framework\View\Model\Layout\Merge;
 use Magento\Framework\View\Element\Template\Context;
 
 class Banner extends Template
@@ -32,6 +34,13 @@ class Banner extends Template
     private $_globalHandles;
 
     /**
+     *
+     * // ** for test ** //
+     * @var string
+     */
+    private $__testValue;
+
+    /**
      * @param Context $context
      * @param TemplateData $templateData
      * @param Merge $layoutMerge
@@ -46,10 +55,20 @@ class Banner extends Template
         $this->_layoutXml = $this->parseXML($this->getLayout()->getXmlString());
         $this->_layoutMerge = $layoutMerge;
         $this->_globalHandles = $globalHandles;
+
+        // ** for test ** //
+        $this->__testValue = $this->_layoutMerge->asString();
     }
 
     /**
-     * Check Advanced Templates option to see if Layout XML banner should be displayed
+     * While I'm building this sucker, need to test for stuff.
+     */
+    public function getTestValue() {
+        return $this->__testValue;
+    }
+
+    /**
+     * Check Advanced Templates option to see if Layout XML banner s hould be displayed
      *
      * @return boolean
      */

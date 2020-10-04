@@ -65,6 +65,7 @@
     }
 }
 
+
 //
 //  Template Hints
 //  ---------------------------------------------
@@ -79,5 +80,40 @@
     line-height: unset;
     max-width: unset;
     min-width: unset;
+}
+
+.adv-debugging-hints {
+    border: 1px dotted red;
+    margin: 6px 2px;
+    padding: 18px 2px 2px 2px;
+    position: relative;
+
+    .page-actions {
+        position: relative;
+        z-index: 1;
+
+        .adv-debugging-hint-template-file {
+            background: red;
+            color: white;
+            font: normal 11px Arial;
+            left: auto;
+            padding: 2px 5px;
+            position: absolute;
+            right: 0 !important;
+            top: 0;
+            white-space: nowrap;
+        }
+    }
+}
+
+.adv-debugging-hint-block-class {
+    background: red;
+    color: blue;
+    font: normal 11px Arial;
+    padding: 2px 5px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    white-space: nowrap;
 }
 

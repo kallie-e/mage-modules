@@ -4,6 +4,7 @@
  */
 ?>
 <?php if ($block->displayAthBanner()) : ?>
+    **<? var_dump($block->getTestValue()); ?>**
     <div class="message global ath-banner">
         <div class="banner-toolbar">
             <div class="ath-xml-info"><?= $block->escapeHtml(__('Advanced Template Hints XML Viewer')) ?></div>
