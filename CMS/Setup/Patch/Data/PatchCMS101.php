@@ -68,7 +68,8 @@ class PatchCMS101 implements DataPatchInterface, PatchRevertableInterface
             const SCOPE_DEFAULT = 'default';
         */
 
-        // update values in core_config_data
+        /*
+         * // update values in core_config_data
         $data = [
             ['scope' => ScopeInterface::SCOPE_DEFAULT, 'scope_id' => 0, 'path' => 'checkout/options/guest_checkout', 'value' => '1'],
             ['scope' => ScopeInterface::SCOPE_DEFAULT, 'scope_id' => 0, 'path' => 'checkout/options/enable_me', 'value' => '1']
@@ -84,12 +85,12 @@ class PatchCMS101 implements DataPatchInterface, PatchRevertableInterface
         $data = [ 'block_id' => 13, 'identifier' => 'footer_links_block', 'content' => '<div>Content</div>'];
         $this->_setup->getConnection()->insertOnDuplicate($this->_setup->getTable('cms_block'), $data, ['content']);
 
-        // update a value in another table */
+        // update a value in another table
         $data = ['id' => '191', 'left_sidebar_html' => '<div>Content</div>'];
         $this->_setup->getConnection()->insertOnDuplicate($this->_setup->getTable('ves_megamenu_item'), $data, ['left_sidebar_html']);
 
         // Update the definition of the attribute (not product specific, but overall)
-        /** @var EavSetup $eavSetup */
+        // @var EavSetup $eavSetup
         $eavSetup = $this->_eavSetupFactory->create(['setup' => $setup]);
 
         // table: eav_attribute
@@ -105,12 +106,15 @@ class PatchCMS101 implements DataPatchInterface, PatchRevertableInterface
         $this->updateCategoryProperty(1, 3, '3');  // Models
 
         $this->_setup->getConnection()->endSetup();
+        */
     }
 
     // in case i need it .....
     private function checkVar($setup, $value) {
+        /*
         $data = ['scope' => ScopeInterface::SCOPE_DEFAULT, 'scope_id' => 0, 'path' => 'kallieexperments/var/check', 'value' => 'value: '. $value];
         $this->_setup->getConnection()->insertOnDuplicate( $this->_setup->getTable('core_config_data'), $data );
+        */
     }
 
     /**
@@ -166,7 +170,7 @@ class PatchCMS101 implements DataPatchInterface, PatchRevertableInterface
          * So use dependencies only if this important for you
          */
         return [
-            SomeDependency::class
+            //SomeDependency::class
         ];
     }
 
@@ -179,6 +183,7 @@ class PatchCMS101 implements DataPatchInterface, PatchRevertableInterface
      * @throws NoSuchEntityException
      */
     function updateCategoryProperty($storeId, $categoryId, $value) {
+        /*
         // create category model and set the store id
         $this->_category = $this->_categoryFactory->create();
         if (null !== $storeId) {
@@ -194,6 +199,6 @@ class PatchCMS101 implements DataPatchInterface, PatchRevertableInterface
         // update the value
         // using attribute value property_name
         $this->_category->setPropertyName($value)->save();
+        */
     }
-
 }

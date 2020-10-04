@@ -2,4 +2,4 @@
 
 use Magento\Framework\Component\ComponentRegistrar;
 
-ComponentRegistrar::register(ComponentRegistrar::MODULE, 'KallieExperiments_Data', __DIR__);
+ComponentRegistrar::register(ComponentRegistrar::MODULE, 'KallieExperiments_CMS', __DIR__);
