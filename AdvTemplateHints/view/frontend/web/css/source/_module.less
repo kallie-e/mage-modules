@@ -28,23 +28,43 @@
 
         .banner-toolbar {
             .lib-message(@_message-type: ath-banner);
-            max-width: @layout__max-width;
-            text-align: left;
-            width: auto;
 
             display: flex;
             flex-flow: row nowrap;
             justify-content: space-between;
+            text-align: left;
+            width: auto;
+            max-width: @layout__max-width;
 
-            .ath-xml-button button.action {
-                background-color: @message-ath-banner__button-background-color;
-                color: @message-ath-banner__button-color;
+            margin: 0 auto;
+            padding: 2px 0;
+
+            .ath-xml-button button {
+                border: 1px solid @color-light-gray;
+                bottom: 10px;
+                position: fixed;
+                z-index: 1001;
+
+                &.action {
+                    background-color: @message-ath-banner__button-background-color;
+                    color: @message-ath-banner__button-color;
+                }
+
+                &.button-banner {
+                    right: 10px;
+                }
+
+                &.button-xml {
+                    right: 10px;
+                    // todo this is for when the banner button is working ... right: 220px;
+                }
             }
 
             .ath-xml-info {
-                align-self: center;
+                /*align-self: center;
                 color: @message-ath-banner__color;
-                font-size: @font-size__base;
+                font-size: @font-size__base;*/
+                .lib-visually-hidden();
             }
         }
     }
@@ -54,6 +74,15 @@
 //
 //  Layout Viewer
 //  ---------------------------------------------
+@media all and (min-width: 769px), print {
+    .modal-slide._show, .modal-popup._show {
+        z-index: 10000 !important;
+    }
+
+    .modals-wrapper .modal-popup .modal-inner-wrap {
+        width: 90% !important;
+    }
+}
 
 #ath-banner-modal [role='tablist'] .item.content {
     height: 60vh;

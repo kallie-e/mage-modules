@@ -2,15 +2,21 @@
 /**
  * @var $block KallieExperiments\AdvTemplateHints\Block\Html\Banner
  */
+// todo create i18n
 ?>
 <?php if ($block->displayAthBanner()) : ?>
-    **<? var_dump($block->getTestValue()); ?>**
     <div class="message global ath-banner">
         <div class="banner-toolbar">
             <div class="ath-xml-info"><?= $block->escapeHtml(__('Advanced Template Hints XML Viewer')) ?></div>
-            <div class="ath-xml-button"><button type="button" class="action" data-trigger="view-xml""><span data-bind="i18n: 'View XML'"></span></div>
+            <div class="ath-xml-button">
+                <!--<button type="button" class="action button-banner"><span data-bind="i18n: 'View Banner'"></span></button>-->
+                <?php if ($block->displayAthBannerInfo()) : ?>
+                    <button type="button" class="action button-xml" id="ath-draggable-button" data-trigger="view-xml"><span data-bind="i18n: 'View XML'"></span></button>
+                <?php endif ?>
+            </div>
         </div>
     </div>
+    <?php if ($block->displayAthBannerInfo()) : ?>
     <div id="ath-banner-modal" data-bind="mageInit: {
             'Magento_Ui/js/modal/modal':{
                 'type': 'popup',
@@ -34,21 +40,33 @@
                 </div>
                 <div id="tab-raw" class="item content" data-role="content" role="tabpanel"><div class='inner-content xml-string'><?= $block->getLayoutXmlString() ?></div></div>
 
+                <!--
                 <div class="item title" data-role="collapsible" role="tab">
                     <a class="switch" data-toggle="trigger" href="#tab-generated">Generated</a>
                 </div>
                 <div id="tab-generated" class="item content" data-role="content" role="tabpanel"><div class="inner-content">Content coming soon...</div></div>
+                -->
 
                 <div class="item title" data-role="collapsible" role="tab">
                     <a class="switch" data-toggle="trigger" href="#tab-handles">Layout Handles</a>
                 </div>
-                    <div id="tab-handles" class="item content" data-role="content" role="tabpanel"><div class="inner-content"><?= $block->getLayoutHandles() ?></div></div>
+                <div id="tab-handles" class="item content" data-role="content" role="tabpanel"><div class="inner-content"><?= $block->getLayoutHandles() ?></div></div>
 
+                <!--
                 <div class="item title" data-role="collapsible" role="tab">
                     <a class="switch" data-toggle="trigger" href="#tab-template-data">Template Data</a>
                 </div>
-                    <div id="tab-template-data" class="item content" data-role="content" role="tabpanel"><div class="inner-content"><?= $block->getTemplateData() ?></div></div>
+                <div id="tab-template-data" class="item content" data-role="content" role="tabpanel"><div class="inner-content"><?/*= $block->getTemplateData() */?></div></div>
+                -->
             </div>
         </div>
     </div>
+    <?php endif; ?>
+    <!-- todo get draggable to work <script>
+        require(['jquery', 'draggable'], function($) {
+            $(function () {
+                $( "#ath-draggable-button" ).draggable();
+            });
+        });
+    </script>-->
 <?php endif; ?>

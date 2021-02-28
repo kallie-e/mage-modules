@@ -50,6 +50,13 @@ class Banner extends Template
      */
     public function __construct(Context $context, TemplateData $templateData, Merge $layoutMerge, Handles $globalHandles, array $data = [])
     {
+        // todo figure out how to symlink
+        // todo update github code
+        // todo remove blue line in phtml.
+        // todo get the buttons to float
+        // todo put all 'debug' buttons as checkmarks with an update button (except adv)
+        // todo experiement with jquery search that filters for keywords
+        // todo z-index for banner needs to be obnoxiously high to stay on top of all site elements
         parent::__construct($context, $templateData, $data);
 
         $this->_layoutXml = $this->parseXML($this->getLayout()->getXmlString());
@@ -63,7 +70,8 @@ class Banner extends Template
     /**
      * While I'm building this sucker, need to test for stuff.
      */
-    public function getTestValue() {
+    public function getTestValue(): string
+    {
         return $this->__testValue;
     }
 
@@ -72,8 +80,9 @@ class Banner extends Template
      *
      * @return boolean
      */
-    public function displayAthBanner()
+    public function displayAthBanner(): bool
     {
+        // todo use constants
         return $this->_scopeConfig->getValue(
             'dev/debug/advanced_template_hints',
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE
@@ -81,9 +90,26 @@ class Banner extends Template
     }
 
     /**
+     * Check Advanced Templates option to see if Layout XML banner s hould be displayed
+     *
+     * @return boolean
+     */
+    public function displayAthBannerInfo(): bool
+    {
+        // todo use constants
+        // todo button is created.  needs form to controller to update db when clicked. for now manually setting here
+        return false;
+//        return $this->_scopeConfig->getValue(
+//            'dev/debug/advanced_template_hints_show',
+//            \Magento\Store\Model\ScopeInterface::SCOPE_STORE
+//        );
+    }
+
+    /**
      * @return string
      */
-    public function getLayoutHandles() {
+    public function getLayoutHandles(): string
+    {
         return join("<br />", array_keys($this->_globalHandles->getHandles()));
     }
 
@@ -92,7 +118,8 @@ class Banner extends Template
      *
      * @return string
      */
-    public function getLayoutXmlString() {
+    public function getLayoutXmlString(): string
+    {
         return $this->_layoutXml;
     }
 
@@ -100,7 +127,9 @@ class Banner extends Template
      * @param string $xmlString
      * @return string
      */
-    private function parseXML(string $xmlString) {
+    private function parseXML(string $xmlString): string
+    {
+        // todo .... soooooo ... check another class ... think this is available in single function
         $parsedString = "";
         $layoutElements = explode('**SPACE**',
             str_replace('&gt;&lt;', '&gt;**SPACE**&lt;', htmlspecialchars($xmlString) ));
